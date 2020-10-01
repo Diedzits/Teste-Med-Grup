@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Escolas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="text-align" size="large">Escolas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let item of escolas" (click)="openDetails(item)">
+    <ion-card-header >
+      <ion-card-title>{{item.nome}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content class="padding" > Endereço: {{item.endereco}}  n° {{item.numero}}  </ion-card-content>
+
+    <ion-card-content class="padding"> Telefone: {{item.fone}}</ion-card-content>
+    
+  </ion-card>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cadastro de escolas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="cadastrarEscola" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input inputmode="text" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let error of errorMessages.nome">
+        <ng-container *ngIf="nome.hasError(error.type) && (nome.dirty || nome.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Endereco</ion-label>
+        <ion-input inputmode="text" formControlName="endereco"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let error of errorMessages.endereco">
+        <ng-container *ngIf="endereco.hasError(error.type) && (endereco.dirty || endereco.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Numero</ion-label>
+        <ion-input autocapitalize inputmode="numeric" formControlName="numero"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let error of errorMessages.numero">
+        <ng-container *ngIf="numero.hasError(error.type) && (numero.dirty || numero.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Fone</ion-label>
+        <ion-input inputmode="numeric" formControlName="fone"></ion-input>
+      </ion-item>
+
+      <div *ngFor="let error of errorMessages.fone">
+        <ng-container *ngIf="fone.hasError(error.type) && (fone.dirty || fone.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-button [disabled]="!cadastrarEscola.valid" type="submit" expand="block" class="button" color="success">Salvar</ion-button>
+    </ion-list>
+  </form>
+</ion-content>

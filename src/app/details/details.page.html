@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Turmas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+  <ion-card *ngFor="let item of data">
+  
+    <ion-card-header>
+      <ion-card-subtitle>Sala: {{item.numeroSala}}</ion-card-subtitle>
+      <ion-card-title> Turma:  {{item.nomeTurma}} </ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+
+</ion-content>
